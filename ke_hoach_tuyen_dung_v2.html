@@ -1,0 +1,273 @@
+
+<style>
+  .root{padding:1.5rem 0;font-family:var(--font-sans);}
+  .page-title{font-size:22px;font-weight:500;color:var(--color-text-primary);margin:0 0 4px;}
+  .page-sub{font-size:14px;color:var(--color-text-secondary);margin:0 0 2rem;}
+  .proj{background:var(--color-background-primary);border:0.5px solid var(--color-border-tertiary);border-radius:var(--border-radius-lg);padding:1.5rem;margin-bottom:1.5rem;}
+  .badge{display:inline-block;font-size:11px;font-weight:500;padding:3px 10px;border-radius:20px;margin-bottom:10px;}
+  .badge-teal{background:#E1F5EE;color:#085041;}
+  .badge-purple{background:#EEEDFE;color:#3C3489;}
+  .proj-title{font-size:20px;font-weight:500;color:var(--color-text-primary);margin:0 0 4px;}
+  .proj-sub{font-size:13px;color:var(--color-text-secondary);margin:0 0 1.25rem;}
+  .usp-box-teal{background:#E1F5EE;border-radius:var(--border-radius-md);padding:14px 18px;margin:0 0 1.25rem;}
+  .usp-box-teal .usp-num{font-size:28px;font-weight:500;color:#085041;margin:0 0 2px;}
+  .usp-box-teal .usp-desc{font-size:13px;color:#0F6E56;margin:0;}
+  .usp-box-purple{background:#EEEDFE;border-radius:var(--border-radius-md);padding:14px 18px;margin:0 0 1.25rem;}
+  .usp-box-purple .usp-num{font-size:28px;font-weight:500;color:#3C3489;margin:0 0 2px;}
+  .usp-box-purple .usp-desc{font-size:13px;color:#534AB7;margin:0;}
+  .metrics{display:grid;grid-template-columns:repeat(auto-fit,minmax(130px,1fr));gap:8px;margin-bottom:1.25rem;}
+  .metric{background:var(--color-background-secondary);border-radius:var(--border-radius-md);padding:10px 12px;}
+  .metric-val{font-size:18px;font-weight:500;color:var(--color-text-primary);margin:0;}
+  .metric-lbl{font-size:11px;color:var(--color-text-secondary);margin:2px 0 0;}
+  .sec-title{font-size:11px;font-weight:500;color:var(--color-text-tertiary);text-transform:uppercase;letter-spacing:.05em;margin:0 0 8px;}
+  .tags{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:1.25rem;}
+  .tag{font-size:12px;padding:4px 10px;border-radius:20px;border:0.5px solid var(--color-border-secondary);color:var(--color-text-secondary);background:var(--color-background-primary);}
+  .scope-list{list-style:none;margin:0 0 1.25rem;padding:0;}
+  .scope-list li{font-size:13px;color:var(--color-text-secondary);padding:5px 0;border-bottom:0.5px solid var(--color-border-tertiary);display:flex;gap:8px;}
+  .scope-list li:last-child{border-bottom:none;}
+  .scope-list li::before{content:"→";color:var(--color-text-tertiary);flex-shrink:0;}
+  .divider{border:none;border-top:0.5px solid var(--color-border-tertiary);margin:1.25rem 0;}
+  .slider-row{display:flex;align-items:center;gap:10px;margin:8px 0;}
+  .slider-row label{font-size:13px;color:var(--color-text-secondary);min-width:100px;}
+  .slider-row input{flex:1;}
+  .slider-row span{font-size:13px;font-weight:500;min-width:55px;text-align:right;color:var(--color-text-primary);}
+  .result-row{display:flex;justify-content:space-between;align-items:baseline;padding:6px 0;border-bottom:0.5px solid var(--color-border-tertiary);}
+  .result-row:last-child{border-bottom:none;}
+  .result-lbl{font-size:13px;color:var(--color-text-secondary);}
+  .result-val{font-size:14px;font-weight:500;color:var(--color-text-primary);}
+  .result-val.big-teal{font-size:20px;color:#085041;}
+  .result-val.big-purple{font-size:20px;color:#3C3489;}
+  .note{font-size:11px;color:var(--color-text-tertiary);margin:8px 0 0;}
+  .action-btn{font-size:13px;padding:8px 16px;border-radius:var(--border-radius-md);border:0.5px solid var(--color-border-secondary);background:transparent;cursor:pointer;color:var(--color-text-primary);margin-top:0.75rem;display:inline-block;}
+  .action-btn:hover{background:var(--color-background-secondary);}
+  .toggle-calc{font-size:12px;color:#0F6E56;cursor:pointer;text-decoration:underline;margin-top:0.5rem;display:inline-block;}
+  .toggle-calc-p{font-size:12px;color:#534AB7;cursor:pointer;text-decoration:underline;margin-top:0.5rem;display:inline-block;}
+  .calc-panel{margin-top:1rem;padding-top:1rem;border-top:0.5px solid var(--color-border-tertiary);}
+  .compare-bar{display:flex;gap:4px;align-items:flex-end;height:60px;margin:10px 0;}
+  .bar{border-radius:4px 4px 0 0;min-width:18px;display:flex;align-items:flex-end;justify-content:center;}
+  .bar span{font-size:9px;font-weight:500;padding-bottom:3px;writing-mode:horizontal-tb;}
+</style>
+
+<div class="root">
+  <h2 style="position:absolute;font-size:0;">Kế hoạch tuyển dụng Sales thời vụ 2 dự án</h2>
+  <p class="page-title">Kế hoạch tuyển dụng Sales thời vụ</p>
+  <p class="page-sub">2 dự án · Không lương cứng · Không giới hạn thu nhập</p>
+
+  <div class="proj">
+    <span class="badge badge-teal">Dự án 1</span>
+    <p class="proj-title">Norra — Phần mềm quản lý nhà hàng</p>
+    <p class="proj-sub">Table Service Module · POS · QR Order · KDS · Đặt bàn online</p>
+
+    <div class="usp-box-teal">
+      <p class="usp-num">10.000.000đ / deal</p>
+      <p class="usp-desc">Chốt 1 hợp đồng nhà hàng = 10 triệu vào tài khoản. Chốt 3 deal/tháng = 30 triệu. Không giới hạn.</p>
+    </div>
+
+    <div class="metrics">
+      <div class="metric">
+        <p class="metric-val">5%</p>
+        <p class="metric-lbl">Hoa hồng / deal</p>
+      </div>
+      <div class="metric">
+        <p class="metric-val">~200tr</p>
+        <p class="metric-lbl">Giá trị hợp đồng TB</p>
+      </div>
+      <div class="metric">
+        <p class="metric-val">1 lần</p>
+        <p class="metric-lbl">Thanh toán khi chốt</p>
+      </div>
+    </div>
+
+    <div class="sec-title">Khách hàng mục tiêu</div>
+    <div class="tags">
+      <span class="tag">Chuỗi Fine / Casual Dining</span>
+      <span class="tag">Quán cà phê phục vụ tại bàn</span>
+      <span class="tag">Pub · Bar · Bistro</span>
+      <span class="tag">ICP: Chickita và tương đương</span>
+    </div>
+
+    <div class="sec-title">Công việc cần làm</div>
+    <ul class="scope-list">
+      <li>LinkedIn: tiếp cận Operation Manager → CFO → CEO chuỗi nhà hàng</li>
+      <li>Mass email đến danh sách CEO/CFO ngành F&B & Hospitality</li>
+      <li>Tùy chọn: TikTok / Podcast về công nghệ nhà hàng để kéo inbound</li>
+    </ul>
+
+    <div class="sec-title">Ứng viên lý tưởng</div>
+    <div class="tags">
+      <span class="tag">Có network ngành F&B</span>
+      <span class="tag">Từng bán SaaS / phần mềm B2B</span>
+      <span class="tag">Biết LinkedIn Sales Navigator</span>
+      <span class="tag">Tự quản lý pipeline</span>
+    </div>
+
+    <span class="toggle-calc" onclick="toggleCalc('calc1',this)">Xem mô phỏng thu nhập ↓</span>
+    <div id="calc1" class="calc-panel" style="display:none;">
+      <div class="slider-row">
+        <label>Số deal / tháng</label>
+        <input type="range" min="1" max="10" step="1" value="2" id="d1" oninput="calcP1()">
+        <span id="d1-out">2 deal</span>
+      </div>
+      <div class="slider-row">
+        <label>Giá trị HĐ trung bình</label>
+        <input type="range" min="50" max="300" step="10" value="200" id="v1" oninput="calcP1()">
+        <span id="v1-out">200tr</span>
+      </div>
+      <div class="divider" style="margin:.75rem 0;"></div>
+      <div class="result-row">
+        <span class="result-lbl">Hoa hồng / deal</span>
+        <span class="result-val" id="p1-per">10tr VND</span>
+      </div>
+      <div class="result-row">
+        <span class="result-lbl">Thu nhập / tháng</span>
+        <span class="result-val big-teal" id="p1-month">20tr VND</span>
+      </div>
+      <div class="result-row">
+        <span class="result-lbl">Thu nhập / năm</span>
+        <span class="result-val" id="p1-year">240tr VND</span>
+      </div>
+    </div>
+
+    <button class="action-btn" onclick="sendPrompt('Viết cold message LinkedIn để tiếp cận CFO và Operations Manager chuỗi nhà hàng, pitch Norra Table Service, hoa hồng 10 triệu/deal')">Viết cold message LinkedIn ↗</button>
+  </div>
+
+  <div class="proj">
+    <span class="badge badge-purple">Dự án 2</span>
+    <p class="proj-title">Giải pháp mở tài khoản ngân hàng quốc tế</p>
+    <p class="proj-sub">Dành cho cross-border seller & performance agency chạy traffic EU/US</p>
+
+    <div class="usp-box-purple">
+      <p class="usp-num">Thu nhập tăng mỗi tháng — tự động</p>
+      <p class="usp-desc">Giới thiệu 1 client, nhận hoa hồng mỗi tháng mãi mãi. Client càng nhiều, thu nhập càng lớn — không cần làm thêm gì sau khi chốt.</p>
+    </div>
+
+    <div id="compound-visual" style="margin-bottom:1.25rem;">
+      <div class="sec-title">Thu nhập tích lũy theo số client (USD/tháng)</div>
+      <div class="compare-bar" id="bar-chart"></div>
+      <div style="display:flex;justify-content:space-between;font-size:10px;color:var(--color-text-tertiary);" id="bar-labels"></div>
+    </div>
+
+    <div class="metrics">
+      <div class="metric">
+        <p class="metric-val">3%</p>
+        <p class="metric-lbl">Hoa hồng recurring</p>
+      </div>
+      <div class="metric">
+        <p class="metric-val">~$1,000</p>
+        <p class="metric-lbl">Giá trị / client / tháng</p>
+      </div>
+      <div class="metric">
+        <p class="metric-val">$30</p>
+        <p class="metric-lbl">/ client / tháng</p>
+      </div>
+    </div>
+
+    <div class="sec-title">Khách hàng mục tiêu</div>
+    <div class="tags">
+      <span class="tag">Performance agency (traffic EU/US)</span>
+      <span class="tag">Amazon · Walmart · Etsy seller</span>
+      <span class="tag">Cross-border ecommerce</span>
+      <span class="tag">Cộng đồng MMO</span>
+    </div>
+
+    <div class="sec-title">Công việc cần làm</div>
+    <ul class="scope-list">
+      <li>Viết bài / seeding trong hội nhóm Amazon VN, Etsy seller, hội MMO</li>
+      <li>Comment tư vấn tự nhiên khi có người hỏi về thanh toán quốc tế</li>
+      <li>Tiếp cận trực tiếp các performance agency đang gặp khó về bank nước ngoài</li>
+    </ul>
+
+    <div class="sec-title">Ứng viên lý tưởng</div>
+    <div class="tags">
+      <span class="tag">Active trong cộng đồng MMO / ecom</span>
+      <span class="tag">Biết viết content thuyết phục</span>
+      <span class="tag">Hiểu pain point thanh toán quốc tế</span>
+      <span class="tag">Đang / từng bán hàng quốc tế</span>
+    </div>
+
+    <span class="toggle-calc-p" onclick="toggleCalc('calc2',this)">Xem mô phỏng thu nhập cộng dồn ↓</span>
+    <div id="calc2" class="calc-panel" style="display:none;">
+      <div class="slider-row">
+        <label>Số client</label>
+        <input type="range" min="1" max="50" step="1" value="10" id="c2" oninput="calcP2()">
+        <span id="c2-out">10 client</span>
+      </div>
+      <div class="slider-row">
+        <label>Số tháng duy trì</label>
+        <input type="range" min="1" max="24" step="1" value="6" id="m2" oninput="calcP2()">
+        <span id="m2-out">6 tháng</span>
+      </div>
+      <div class="divider" style="margin:.75rem 0;"></div>
+      <div class="result-row">
+        <span class="result-lbl">Thu nhập / tháng hiện tại</span>
+        <span class="result-val big-purple" id="p2-month">$300 / tháng</span>
+      </div>
+      <div class="result-row">
+        <span class="result-lbl">Tổng tích lũy sau <span id="m2-label">6</span> tháng</span>
+        <span class="result-val" id="p2-total">$1,800</span>
+      </div>
+      <div class="result-row">
+        <span class="result-lbl">Quy đổi VND</span>
+        <span class="result-val" id="p2-vnd">~7.5tr / tháng</span>
+      </div>
+      <p class="note">Không cần tìm thêm client mới để duy trì thu nhập — chỉ cần giữ client cũ.</p>
+    </div>
+
+    <button class="action-btn" onclick="sendPrompt('Viết 3 mẫu comment seeding tự nhiên cho hội nhóm Amazon Việt Nam và hội MMO về giải pháp mở tài khoản ngân hàng quốc tế')">Viết mẫu comment seeding ↗</button>
+  </div>
+</div>
+
+<script>
+function toggleCalc(id, el) {
+  const panel = document.getElementById(id);
+  const open = panel.style.display !== 'none';
+  panel.style.display = open ? 'none' : 'block';
+  el.textContent = open ? el.textContent.replace('↑','↓') : el.textContent.replace('↓','↑');
+}
+function calcP1() {
+  const d = parseInt(document.getElementById('d1').value);
+  const v = parseInt(document.getElementById('v1').value);
+  document.getElementById('d1-out').textContent = d + ' deal';
+  document.getElementById('v1-out').textContent = v + 'tr';
+  const per = v * 0.05;
+  document.getElementById('p1-per').textContent = per.toFixed(1) + 'tr VND';
+  document.getElementById('p1-month').textContent = (per * d).toFixed(0) + 'tr VND';
+  document.getElementById('p1-year').textContent = (per * d * 12).toFixed(0) + 'tr VND';
+}
+function calcP2() {
+  const c = parseInt(document.getElementById('c2').value);
+  const m = parseInt(document.getElementById('m2').value);
+  document.getElementById('c2-out').textContent = c + ' client';
+  document.getElementById('m2-out').textContent = m + ' tháng';
+  document.getElementById('m2-label').textContent = m;
+  const monthly = c * 30;
+  const total = monthly * m;
+  const vnd = Math.round(monthly * 25).toLocaleString('vi-VN');
+  document.getElementById('p2-month').textContent = '$' + monthly.toLocaleString() + ' / tháng';
+  document.getElementById('p2-total').textContent = '$' + total.toLocaleString();
+  document.getElementById('p2-vnd').textContent = '~' + vnd + 'k / tháng';
+}
+function buildBars() {
+  const steps = [1,5,10,20,30,50];
+  const maxVal = 50 * 30;
+  const chart = document.getElementById('bar-chart');
+  const labels = document.getElementById('bar-labels');
+  chart.innerHTML = '';
+  labels.innerHTML = '';
+  steps.forEach(c => {
+    const val = c * 30;
+    const pct = Math.round((val / maxVal) * 56);
+    const bar = document.createElement('div');
+    bar.className = 'bar';
+    bar.style.cssText = 'height:' + (pct + 4) + 'px;background:#AFA9EC;flex:1;border-radius:4px 4px 0 0;';
+    const lbl = document.createElement('div');
+    lbl.style.cssText = 'flex:1;text-align:center;font-size:10px;color:var(--color-text-tertiary);padding-top:3px;';
+    lbl.textContent = c + ' c';
+    chart.appendChild(bar);
+    labels.appendChild(lbl);
+  });
+}
+buildBars();
+calcP1();
+calcP2();
+</script>
