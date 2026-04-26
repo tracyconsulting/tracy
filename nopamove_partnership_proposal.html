@@ -1,0 +1,822 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Partnership Proposal — NopaMove × [Tên bạn]</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --green-deep: #0A3D2E;
+    --green-mid: #1D6B4F;
+    --green-light: #3EAF7C;
+    --green-pale: #C8EDD9;
+    --green-ghost: #F0FAF4;
+    --cream: #FAF8F3;
+    --ink: #1A1A18;
+    --ink-muted: #5A5A56;
+    --ink-faint: #9A9A96;
+    --gold: #C8A84B;
+    --gold-pale: #FBF4E1;
+    --red-warn: #C0392B;
+    --border: rgba(26,26,24,0.09);
+    --r: 12px;
+    --r-lg: 20px;
+  }
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--cream);
+    color: var(--ink);
+    font-size: 15px;
+    line-height: 1.7;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* ── LAYOUT ── */
+  .page { max-width: 860px; margin: 0 auto; padding: 0 32px 80px; }
+
+  /* ── COVER ── */
+  .cover {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 80px 0 60px;
+    position: relative;
+    overflow: hidden;
+  }
+  .cover::before {
+    content: '';
+    position: absolute;
+    top: -120px; right: -180px;
+    width: 560px; height: 560px;
+    border-radius: 50%;
+    background: radial-gradient(circle, var(--green-pale) 0%, transparent 70%);
+    opacity: 0.5;
+    pointer-events: none;
+  }
+  .cover-eyebrow {
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: .14em;
+    text-transform: uppercase;
+    color: var(--green-light);
+    margin-bottom: 28px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .cover-eyebrow::before {
+    content: '';
+    display: block;
+    width: 32px;
+    height: 1.5px;
+    background: var(--green-light);
+  }
+  .cover-title {
+    font-family: 'DM Serif Display', serif;
+    font-size: clamp(42px, 6vw, 68px);
+    line-height: 1.08;
+    color: var(--green-deep);
+    margin-bottom: 20px;
+    max-width: 700px;
+  }
+  .cover-title em {
+    font-style: italic;
+    color: var(--green-light);
+  }
+  .cover-sub {
+    font-size: 17px;
+    color: var(--ink-muted);
+    max-width: 540px;
+    line-height: 1.65;
+    margin-bottom: 48px;
+  }
+  .cover-meta {
+    display: flex;
+    align-items: center;
+    gap: 24px;
+    flex-wrap: wrap;
+  }
+  .cover-meta-item {
+    font-size: 12px;
+    color: var(--ink-faint);
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+  }
+  .cover-meta-item strong { color: var(--ink); font-size: 13px; font-weight: 500; }
+  .cover-divider {
+    width: 1px;
+    height: 32px;
+    background: var(--border);
+  }
+  .cover-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: var(--green-deep);
+    color: #fff;
+    font-size: 12px;
+    font-weight: 500;
+    padding: 8px 16px;
+    border-radius: 100px;
+    margin-top: 32px;
+    align-self: flex-start;
+    letter-spacing: .02em;
+  }
+  .dot { width: 7px; height: 7px; border-radius: 50%; background: var(--green-light); }
+
+  /* ── SECTION ── */
+  section { margin-bottom: 72px; animation: fadeUp .5s ease both; }
+  @keyframes fadeUp { from { opacity:0; transform: translateY(16px); } to { opacity:1; transform: none; } }
+
+  .section-label {
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: .16em;
+    text-transform: uppercase;
+    color: var(--green-light);
+    margin-bottom: 12px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .section-label::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: var(--green-pale);
+  }
+  .section-title {
+    font-family: 'DM Serif Display', serif;
+    font-size: clamp(28px, 4vw, 40px);
+    line-height: 1.15;
+    color: var(--green-deep);
+    margin-bottom: 16px;
+  }
+  .section-title em { font-style: italic; color: var(--green-light); }
+  .section-body {
+    font-size: 15px;
+    color: var(--ink-muted);
+    max-width: 640px;
+    margin-bottom: 32px;
+    line-height: 1.75;
+  }
+
+  /* ── CARDS ── */
+  .card {
+    background: #fff;
+    border: 1px solid var(--border);
+    border-radius: var(--r-lg);
+    padding: 24px 28px;
+    transition: box-shadow .2s;
+  }
+  .card:hover { box-shadow: 0 8px 32px rgba(10,61,46,.06); }
+  .card-title { font-size: 14px; font-weight: 600; color: var(--green-deep); margin-bottom: 6px; }
+  .card-body { font-size: 13px; color: var(--ink-muted); line-height: 1.65; }
+
+  .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+  .grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; }
+
+  /* ── PERSONA SECTION ── */
+  .persona-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+  .persona-card {
+    background: var(--green-ghost);
+    border: 1px solid var(--green-pale);
+    border-radius: var(--r-lg);
+    padding: 22px 24px;
+  }
+  .persona-icon {
+    width: 40px; height: 40px;
+    background: var(--green-pale);
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 18px;
+    margin-bottom: 12px;
+  }
+  .persona-card h3 { font-size: 14px; font-weight: 600; color: var(--green-deep); margin-bottom: 6px; }
+  .persona-card p { font-size: 12px; color: var(--ink-muted); line-height: 1.6; }
+  .persona-tags { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 10px; }
+  .tag {
+    font-size: 11px; font-weight: 500;
+    padding: 3px 10px;
+    border-radius: 100px;
+    background: var(--green-pale);
+    color: var(--green-mid);
+  }
+
+  /* ── INSIGHT BOX ── */
+  .insight {
+    background: var(--green-deep);
+    color: #fff;
+    border-radius: var(--r-lg);
+    padding: 32px 36px;
+    margin: 24px 0;
+    position: relative;
+    overflow: hidden;
+  }
+  .insight::before {
+    content: '"';
+    position: absolute;
+    top: -20px; right: 24px;
+    font-family: 'DM Serif Display', serif;
+    font-size: 160px;
+    color: rgba(255,255,255,.05);
+    line-height: 1;
+  }
+  .insight p {
+    font-size: 17px;
+    line-height: 1.7;
+    color: rgba(255,255,255,.9);
+    max-width: 620px;
+    position: relative;
+  }
+  .insight p strong { color: var(--green-light); font-weight: 600; }
+  .insight-label {
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: .14em;
+    text-transform: uppercase;
+    color: var(--green-light);
+    margin-bottom: 12px;
+  }
+
+  /* ── PHASE TIMELINE ── */
+  .timeline { display: flex; flex-direction: column; gap: 0; }
+  .tl-item {
+    display: grid;
+    grid-template-columns: 40px 1fr;
+    gap: 0 20px;
+    padding-bottom: 32px;
+    position: relative;
+  }
+  .tl-item:last-child { padding-bottom: 0; }
+  .tl-node {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .tl-dot {
+    width: 40px; height: 40px;
+    border-radius: 50%;
+    background: var(--green-deep);
+    color: #fff;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 13px; font-weight: 600;
+    flex-shrink: 0;
+    z-index: 1;
+  }
+  .tl-dot.phase2 { background: var(--green-light); }
+  .tl-dot.pipeline { background: var(--gold); }
+  .tl-line {
+    flex: 1;
+    width: 1px;
+    background: var(--green-pale);
+    margin: 4px 0;
+    min-height: 24px;
+  }
+  .tl-item:last-child .tl-line { display: none; }
+  .tl-content { padding-top: 6px; }
+  .tl-badge {
+    display: inline-block;
+    font-size: 10px; font-weight: 600;
+    letter-spacing: .1em; text-transform: uppercase;
+    padding: 2px 10px;
+    border-radius: 100px;
+    margin-bottom: 8px;
+  }
+  .badge-now { background: var(--green-pale); color: var(--green-deep); }
+  .badge-next { background: #E8F4FF; color: #1A5C9A; }
+  .badge-pipe { background: var(--gold-pale); color: #7A5C10; }
+  .tl-content h3 { font-size: 16px; font-weight: 600; color: var(--green-deep); margin-bottom: 6px; }
+  .tl-content p { font-size: 13px; color: var(--ink-muted); line-height: 1.6; margin-bottom: 10px; }
+
+  /* ── PARTNER TABLE ── */
+  .partner-list { display: flex; flex-direction: column; gap: 10px; }
+  .partner-row {
+    display: grid;
+    grid-template-columns: 1fr auto auto;
+    gap: 12px;
+    align-items: center;
+    background: #fff;
+    border: 1px solid var(--border);
+    border-radius: var(--r);
+    padding: 14px 18px;
+    transition: border-color .2s;
+  }
+  .partner-row:hover { border-color: var(--green-pale); }
+  .partner-name { font-size: 14px; font-weight: 600; color: var(--green-deep); }
+  .partner-desc { font-size: 12px; color: var(--ink-muted); margin-top: 2px; }
+  .partner-stat {
+    font-size: 13px; font-weight: 600; color: var(--green-mid);
+    text-align: right; white-space: nowrap;
+  }
+  .partner-stat small { display: block; font-size: 10px; font-weight: 400; color: var(--ink-faint); }
+  .partner-chip {
+    font-size: 10px; font-weight: 600;
+    padding: 3px 10px; border-radius: 100px;
+    white-space: nowrap;
+  }
+  .chip-ready { background: var(--green-pale); color: var(--green-mid); }
+  .chip-pipe { background: var(--gold-pale); color: #7A5C10; }
+  .chip-long { background: #F0EEFF; color: #4A3AAA; }
+
+  /* ── FORMAT CARDS ── */
+  .format-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 12px; }
+  .format-card {
+    border-radius: var(--r-lg);
+    padding: 22px 22px 20px;
+    border: 1px solid var(--border);
+    background: #fff;
+    position: relative;
+  }
+  .format-card.featured {
+    background: var(--green-deep);
+    border-color: var(--green-deep);
+  }
+  .format-rec {
+    position: absolute;
+    top: -10px; left: 50%;
+    transform: translateX(-50%);
+    background: var(--green-light);
+    color: #fff;
+    font-size: 10px; font-weight: 600;
+    letter-spacing: .08em; text-transform: uppercase;
+    padding: 3px 12px; border-radius: 100px;
+    white-space: nowrap;
+  }
+  .format-phase {
+    font-size: 10px; font-weight: 600; letter-spacing: .1em; text-transform: uppercase;
+    color: var(--ink-faint); margin-bottom: 8px;
+  }
+  .format-card.featured .format-phase { color: rgba(255,255,255,.5); }
+  .format-name {
+    font-family: 'DM Serif Display', serif;
+    font-size: 22px; line-height: 1.2;
+    color: var(--green-deep); margin-bottom: 8px;
+  }
+  .format-card.featured .format-name { color: #fff; }
+  .format-desc { font-size: 12px; color: var(--ink-muted); line-height: 1.6; }
+  .format-card.featured .format-desc { color: rgba(255,255,255,.7); }
+  .format-cost {
+    margin-top: 14px;
+    padding-top: 12px;
+    border-top: 1px solid var(--border);
+    font-size: 12px; color: var(--ink-faint);
+    display: flex; justify-content: space-between;
+  }
+  .format-card.featured .format-cost {
+    border-color: rgba(255,255,255,.12);
+    color: rgba(255,255,255,.5);
+  }
+  .format-cost strong { color: var(--ink); font-weight: 600; }
+  .format-card.featured .format-cost strong { color: #fff; }
+
+  /* ── ADVANTAGE SECTION ── */
+  .adv-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+  .adv-card {
+    padding: 20px 22px;
+    background: #fff;
+    border: 1px solid var(--border);
+    border-radius: var(--r-lg);
+    display: flex; gap: 14px; align-items: flex-start;
+  }
+  .adv-icon {
+    width: 36px; height: 36px; flex-shrink: 0;
+    background: var(--green-ghost);
+    border-radius: 10px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 16px;
+  }
+  .adv-title { font-size: 13px; font-weight: 600; color: var(--green-deep); margin-bottom: 4px; }
+  .adv-body { font-size: 12px; color: var(--ink-muted); line-height: 1.6; }
+
+  /* ── STAT ROW ── */
+  .stat-row {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1px;
+    background: var(--border);
+    border-radius: var(--r-lg);
+    overflow: hidden;
+    margin: 24px 0;
+  }
+  .stat-cell {
+    background: #fff;
+    padding: 24px 20px;
+    text-align: center;
+  }
+  .stat-num {
+    font-family: 'DM Serif Display', serif;
+    font-size: 38px;
+    color: var(--green-deep);
+    line-height: 1;
+    margin-bottom: 6px;
+  }
+  .stat-label { font-size: 12px; color: var(--ink-muted); }
+
+  /* ── CTA ── */
+  .cta-block {
+    background: var(--green-deep);
+    border-radius: var(--r-lg);
+    padding: 48px 44px;
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 32px;
+    align-items: center;
+  }
+  .cta-title {
+    font-family: 'DM Serif Display', serif;
+    font-size: 30px; line-height: 1.2;
+    color: #fff; margin-bottom: 10px;
+  }
+  .cta-title em { font-style: italic; color: var(--green-light); }
+  .cta-body { font-size: 14px; color: rgba(255,255,255,.65); line-height: 1.65; }
+  .cta-action { display: flex; flex-direction: column; gap: 10px; align-items: flex-end; }
+  .btn {
+    display: inline-flex; align-items: center; gap: 8px;
+    padding: 13px 24px;
+    border-radius: 100px;
+    font-size: 13px; font-weight: 600;
+    text-decoration: none;
+    white-space: nowrap;
+    cursor: pointer;
+    border: none;
+    transition: opacity .2s, transform .15s;
+  }
+  .btn:hover { opacity: .88; transform: translateY(-1px); }
+  .btn-primary { background: var(--green-light); color: #fff; }
+  .btn-ghost { background: rgba(255,255,255,.08); color: rgba(255,255,255,.75); border: 1px solid rgba(255,255,255,.14); }
+  .cta-contact { font-size: 11px; color: rgba(255,255,255,.35); text-align: center; }
+
+  /* ── FOOTER ── */
+  .footer {
+    margin-top: 64px;
+    padding-top: 24px;
+    border-top: 1px solid var(--border);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 12px;
+    color: var(--ink-faint);
+  }
+
+  /* ── DIVIDER ── */
+  hr.section-hr { border: none; border-top: 1px solid var(--border); margin: 0 0 64px; }
+
+  /* ── HIGHLIGHT ── */
+  .hl { background: var(--green-pale); border-radius: 4px; padding: 1px 5px; color: var(--green-deep); font-weight: 500; }
+
+  @media (max-width: 640px) {
+    .page { padding: 0 18px 60px; }
+    .grid-2, .grid-3, .persona-grid, .adv-grid, .format-grid { grid-template-columns: 1fr; }
+    .stat-row { grid-template-columns: 1fr; }
+    .cta-block { grid-template-columns: 1fr; }
+    .cta-action { align-items: flex-start; }
+    .partner-row { grid-template-columns: 1fr; }
+    .cover-title { font-size: 36px; }
+  }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <!-- COVER -->
+  <div class="cover">
+    <div class="cover-eyebrow">Partnership Proposal · Confidential</div>
+    <h1 class="cover-title">Mở rộng điểm chạm<br><em>F&B cho NopaMove</em></h1>
+    <p class="cover-sub">Đưa bình reusable của người dùng Nopa đến nhiều hơn những nơi họ ghé mỗi ngày — từ quán trà sữa yêu thích đến chuỗi cà phê quen thuộc.</p>
+    <div class="cover-badge">
+      <span class="dot"></span>
+      87 cửa hàng · Sẵn sàng onboard trong 4 tuần
+    </div>
+    <div class="cover-meta" style="margin-top: 40px;">
+      <div class="cover-meta-item">
+        <span>Chuẩn bị bởi</span>
+        <strong>[Tên bạn] · Freelance Partnership Manager</strong>
+      </div>
+      <div class="cover-divider"></div>
+      <div class="cover-meta-item">
+        <span>Dành cho</span>
+        <strong>NopaMove</strong>
+      </div>
+      <div class="cover-divider"></div>
+      <div class="cover-meta-item">
+        <span>Ngày</span>
+        <strong>Tháng 5 / 2026</strong>
+      </div>
+    </div>
+  </div>
+
+  <hr class="section-hr">
+
+  <!-- SECTION 1: NGƯỜI DÙNG NOPA -->
+  <section>
+    <div class="section-label">01 — Insight người dùng</div>
+    <h2 class="section-title">Người dùng Nopa <em>là ai</em> — và họ uống gì mỗi ngày?</h2>
+    <p class="section-body">Người mua bình reusable không phải nhóm ngẫu nhiên. Đây là tệp có ý thức, chủ động, và có thói quen tiêu dùng đồ uống rất rõ ràng — thứ tạo ra cơ hội partnership mà không phải brand nào cũng nhìn thấy.</p>
+
+    <div class="persona-grid">
+      <div class="persona-card">
+        <div class="persona-icon">👩‍💻</div>
+        <h3>Gen Z & Millennial đô thị</h3>
+        <p>18–32 tuổi, sinh sống và làm việc tại TP.HCM, Hà Nội. Có thu nhập ổn định hoặc đang xây dựng sự nghiệp. Tiêu dùng có chủ đích — họ chọn thương hiệu phản ánh giá trị của mình.</p>
+        <div class="persona-tags">
+          <span class="tag">Sustainability-first</span>
+          <span class="tag">Brand conscious</span>
+          <span class="tag">Visual-driven</span>
+        </div>
+      </div>
+      <div class="persona-card">
+        <div class="persona-icon">🧋</div>
+        <h3>Dân văn phòng · Freelancer · Sinh viên</h3>
+        <p>Mua đồ uống 1–2 lần/ngày, thường theo lộ trình cố định: nhà → quán quen → văn phòng. Tần suất cao và thói quen ổn định tạo ra nhu cầu "bình phải được chấp nhận ở nhiều nơi".</p>
+        <div class="persona-tags">
+          <span class="tag">Habitual buyer</span>
+          <span class="tag">Daily F&B spend</span>
+          <span class="tag">Loyalty-responsive</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="insight" style="margin-top: 16px;">
+      <div class="insight-label">Hành vi tiêu dùng quan trọng nhất</div>
+      <p>Người dùng Nopa <strong>không trung thành với một quán duy nhất</strong>. Họ xen kẽ giữa local brand indie, chuỗi mid-range, và take-away tiện lợi tùy theo ngữ cảnh — buổi sáng có thể là Rau Má Mix, buổi chiều là Guta hay Ô Long Châu. Đây là lý do mạng lưới đối tác phải rộng đủ để bình Nopa <strong>luôn có giá trị, bất kể họ đang ở đâu</strong>.</p>
+    </div>
+
+    <div class="grid-3" style="margin-top: 16px;">
+      <div class="card">
+        <div class="card-title">🌿 Quan tâm sustainability</div>
+        <div class="card-body">Sẵn sàng trả thêm hoặc thay đổi hành vi nếu thương hiệu giúp họ hành động có ý nghĩa. Reusable cup là hành động, không chỉ là sản phẩm.</div>
+      </div>
+      <div class="card">
+        <div class="card-title">📍 Gắn với địa điểm quen</div>
+        <div class="card-body">Quán yêu thích thường trong bán kính 500m–1km từ nhà hoặc công ty. Partner network cần có mật độ cửa hàng cao tại khu dân cư và văn phòng trọng điểm.</div>
+      </div>
+      <div class="card">
+        <div class="card-title">💬 Lan truyền qua community</div>
+        <div class="card-body">Khi ưu đãi đủ hấp dẫn, họ chia sẻ tự nhiên qua story, group chat. Mỗi redemption có tiềm năng trở thành word-of-mouth marketing miễn phí.</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 2: BÀI TOÁN -->
+  <section>
+    <div class="section-label">02 — Bài toán cần giải</div>
+    <h2 class="section-title">Partner network &amp; <em>Perceived value</em></h2>
+    <p class="section-body">Mạng lưới đối tác hiện tại của NopaMove (~17 indie cafe) chưa đủ để tạo thói quen mang bình hàng ngày. Câu hỏi thực sự không phải "làm sao bán thêm bình?" — mà là:</p>
+
+    <div class="insight">
+      <div class="insight-label">Core problem statement</div>
+      <p><strong>Làm sao để người mua bình Nopa có nhiều chỗ được ưu đãi hơn mỗi ngày</strong> — mở rộng điểm chạm F&B thực tế. Đây là bài toán <strong>partner network &amp; perceived value</strong>: bình có giá trị cao hơn khi nó được chào đón ở nhiều nơi hơn.</p>
+    </div>
+
+    <p class="section-body" style="margin-top: 20px;">Mỗi lần người dùng mang bình đến một quán mới và được giảm giá, họ đang được remind rằng quyết định mua bình là đúng. Đây là retention mechanism mạnh nhất mà Nopa có thể xây dựng — không qua app, không qua quảng cáo.</p>
+
+    <div class="stat-row">
+      <div class="stat-cell">
+        <div class="stat-num">87</div>
+        <div class="stat-label">Cửa hàng sẵn sàng<br>onboard ngay</div>
+      </div>
+      <div class="stat-cell">
+        <div class="stat-num">3</div>
+        <div class="stat-label">Chuỗi đã xác nhận<br>quan hệ đối tác</div>
+      </div>
+      <div class="stat-cell">
+        <div class="stat-num">4T</div>
+        <div class="stat-label">Tuần để pilot<br>đầu tiên đi vào vận hành</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 3: ĐỀ XUẤT -->
+  <section>
+    <div class="section-label">03 — Đề xuất hợp tác</div>
+    <h2 class="section-title">Lộ trình <em>2 phase</em></h2>
+    <p class="section-body">Bắt đầu từ những gì có thể triển khai ngay, tạo data thực tế, rồi dùng data đó để tiếp cận chuỗi lớn hơn. Không cần ký hợp đồng dài hạn ngay từ đầu.</p>
+
+    <div class="timeline">
+      <!-- Phase 1 -->
+      <div class="tl-item">
+        <div class="tl-node">
+          <div class="tl-dot">1</div>
+          <div class="tl-line"></div>
+        </div>
+        <div class="tl-content">
+          <span class="tl-badge badge-now">Short-term · Tháng 1–2</span>
+          <h3>87 cửa hàng · Onboard trong 4 tuần</h3>
+          <p>3 chuỗi đã có quan hệ sẵn sàng, phù hợp với audience và positioning của Nopa. Cùng nhau tạo ra 87 điểm ưu đãi thực tế trước khi cần bất kỳ tích hợp công nghệ nào.</p>
+          <div class="partner-list">
+            <div class="partner-row">
+              <div>
+                <div class="partner-name">Rau Má Mix</div>
+                <div class="partner-desc">Healthy beverage · Lifestyle positioning · Gen Z & Millennial</div>
+              </div>
+              <div class="partner-stat">56 cửa hàng<small>TP.HCM + Hà Nội</small></div>
+              <span class="partner-chip chip-ready">Sẵn sàng</span>
+            </div>
+            <div class="partner-row">
+              <div>
+                <div class="partner-name">Viva Star Coffee</div>
+                <div class="partner-desc">Daily coffee · Dân văn phòng · Tần suất cao</div>
+              </div>
+              <div class="partner-stat">17 cửa hàng<small>TP.HCM</small></div>
+              <span class="partner-chip chip-ready">Sẵn sàng</span>
+            </div>
+            <div class="partner-row">
+              <div>
+                <div class="partner-name">Ô Long Châu</div>
+                <div class="partner-desc">Specialty tea · Gen Z · Local cool aesthetic</div>
+              </div>
+              <div class="partner-stat">14 cửa hàng<small>TP.HCM</small></div>
+              <span class="partner-chip chip-ready">Sẵn sàng</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Phase 2 -->
+      <div class="tl-item">
+        <div class="tl-node">
+          <div class="tl-dot phase2">2</div>
+          <div class="tl-line"></div>
+        </div>
+        <div class="tl-content">
+          <span class="tl-badge badge-next">Mid-term · Tháng 3–6</span>
+          <h3>Mở rộng sang mid-size chains</h3>
+          <p>Dùng data redemption từ Phase 1 để tiếp cận thêm các chuỗi mid-range có audience tương đồng. Mỗi đối tác mới được chọn lọc theo brand fit — không phải chạy theo số lượng.</p>
+          <div class="partner-list">
+            <div class="partner-row">
+              <div>
+                <div class="partner-name">Katinat · Gấu Coffee · Là Việt</div>
+                <div class="partner-desc">Specialty / lifestyle · Đang mở rộng mạnh tại TP.HCM & Hà Nội</div>
+              </div>
+              <div class="partner-stat">~50–100 CH<small>Tổng 3 chuỗi</small></div>
+              <span class="partner-chip chip-pipe">Đang tiếp cận</span>
+            </div>
+            <div class="partner-row">
+              <div>
+                <div class="partner-name">Urban Station · Cheese Coffee</div>
+                <div class="partner-desc">Co-working café & trendy bubble tea · Freelancer & student audience</div>
+              </div>
+              <div class="partner-stat">~30–60 CH<small>Tổng 2 chuỗi</small></div>
+              <span class="partner-chip chip-pipe">Đang tiếp cận</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Long-term Pipeline -->
+      <div class="tl-item">
+        <div class="tl-node">
+          <div class="tl-dot pipeline">∞</div>
+        </div>
+        <div class="tl-content">
+          <span class="tl-badge badge-pipe">Long-term Pipeline · 6 tháng+</span>
+          <h3>Flagship chains & Take-away network</h3>
+          <p>Chuỗi lớn cần data pilot trước khi commit. Sau 4–6 tháng có redemption rate thực tế, đây là argument mạnh nhất khi gặp procurement của các tên tuổi lớn. Đặc biệt, <span class="hl">take-away chains như Guta</span> — nơi người dùng Nopa đến hàng ngày theo thói quen commute — là cơ hội rất lớn dài hạn.</p>
+          <div class="partner-list">
+            <div class="partner-row">
+              <div>
+                <div class="partner-name">Highlands Coffee</div>
+                <div class="partner-desc">~700 cửa hàng · Mass appeal · Cần data pilot để thuyết phục</div>
+              </div>
+              <div class="partner-stat">~700 CH<small>Toàn quốc</small></div>
+              <span class="partner-chip chip-long">Pipeline</span>
+            </div>
+            <div class="partner-row">
+              <div>
+                <div class="partner-name">Starbucks Vietnam</div>
+                <div class="partner-desc">~100 cửa hàng · Premium positioning · Reusable cup culture fit hoàn hảo</div>
+              </div>
+              <div class="partner-stat">~100 CH<small>Hà Nội + TP.HCM</small></div>
+              <span class="partner-chip chip-long">Pipeline</span>
+            </div>
+            <div class="partner-row">
+              <div>
+                <div class="partner-name">Guta Cafe</div>
+                <div class="partner-desc">Take-away · Commuter-focused · Tần suất cao · Giá thân thiện</div>
+              </div>
+              <div class="partner-stat">Đang mở rộng<small>TP.HCM</small></div>
+              <span class="partner-chip chip-long">Pipeline</span>
+            </div>
+            <div class="partner-row">
+              <div>
+                <div class="partner-name">Phúc Long Heritage</div>
+                <div class="partner-desc">~150 cửa hàng · Brand nhận diện cao · Audience rộng</div>
+              </div>
+              <div class="partner-stat">~150 CH<small>Toàn quốc</small></div>
+              <span class="partner-chip chip-long">Pipeline</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 4: FORMAT -->
+  <section>
+    <div class="section-label">04 — Format chương trình</div>
+    <h2 class="section-title">3 cách ưu đãi — <em>bắt đầu đơn giản</em></h2>
+    <p class="section-body">Mỗi format được thiết kế để phù hợp với từng giai đoạn. Không cần app, không cần tích hợp phức tạp ở bước đầu.</p>
+
+    <div class="format-grid">
+      <div class="format-card featured">
+        <div class="format-rec">Bắt đầu ngay</div>
+        <div class="format-phase">Format 1</div>
+        <div class="format-name">5k / 10k<br>off</div>
+        <div class="format-desc">Giảm thẳng vào hóa đơn khi user show mã Nopa. Mã code riêng theo chuỗi (NOPA-RAUMAMIX). Dễ tracking, không cần app.</div>
+        <div class="format-cost">
+          Chi phí quán <strong>5–10k / lần</strong>
+        </div>
+      </div>
+      <div class="format-card">
+        <div class="format-phase">Format 2 · Tháng 2–3</div>
+        <div class="format-name">Free<br>Upsize</div>
+        <div class="format-desc">Upgrade size miễn phí khi mang bình Nopa đến quán. Tạo thói quen mang bình và storytelling "xanh" tự nhiên.</div>
+        <div class="format-cost">
+          Chi phí quán <strong>~5–15k / ly</strong>
+        </div>
+      </div>
+      <div class="format-card">
+        <div class="format-phase">Format 3 · Flagship</div>
+        <div class="format-name">Free 1 ly<br>/ 100k</div>
+        <div class="format-desc">Tặng 1 ly khi hóa đơn đạt 100k. Ưu đãi mạnh nhất, dành cho chuỗi lớn. Lý do rõ ràng nhất để mua bình Nopa.</div>
+        <div class="format-cost">
+          Chi phí quán <strong>~30–60k / lần</strong>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 5: LỢI THẾ -->
+  <section>
+    <div class="section-label">05 — Tại sao chọn phương án này</div>
+    <h2 class="section-title">Thứ platform lớn <em>không làm được</em></h2>
+    <p class="section-body">Các giải pháp loyalty platform lo phần trong app rất tốt. Nhưng có 4 thứ họ không mang lại được trong 4 tuần.</p>
+
+    <div class="adv-grid">
+      <div class="adv-card">
+        <div class="adv-icon">⚡</div>
+        <div>
+          <div class="adv-title">Tốc độ — onboard trong 4 tuần</div>
+          <div class="adv-body">Quan hệ trực tiếp với 3 chuỗi → không cần quy trình agency, không cần tích hợp API. Platform lớn cần 1–3 tháng để onboard đối tác mới.</div>
+        </div>
+      </div>
+      <div class="adv-card">
+        <div class="adv-icon">🎯</div>
+        <div>
+          <div class="adv-title">Brand fit được chọn lọc tay</div>
+          <div class="adv-body">Chỉ đề xuất chuỗi phù hợp positioning healthy / lifestyle / local-cool của Nopa. Không phải pool hàng nghìn brand không phân biệt.</div>
+        </div>
+      </div>
+      <div class="adv-card">
+        <div class="adv-icon">💰</div>
+        <div>
+          <div class="adv-title">Chi phí minh bạch, không overhead</div>
+          <div class="adv-body">Đàm phán trực tiếp — không có platform fee ẩn hay revenue share agency. NopaMove kiểm soát toàn bộ điều khoản với từng chuỗi.</div>
+        </div>
+      </div>
+      <div class="adv-card">
+        <div class="adv-icon">🔒</div>
+        <div>
+          <div class="adv-title">Exclusive cho NopaMove</div>
+          <div class="adv-body">Thỏa thuận với Rau Má Mix, Viva Star, Ô Long Châu là riêng cho Nopa — không chia sẻ với competitor trong cùng pool của platform.</div>
+        </div>
+      </div>
+    </div>
+
+    <div style="background: var(--gold-pale); border: 1px solid #E8D49A; border-radius: var(--r-lg); padding: 20px 24px; margin-top: 16px; font-size: 13px; color: #5A4010; line-height: 1.7;">
+      <strong style="color: #412402;">Lưu ý quan trọng:</strong> Đây không phải lựa chọn "thay thế" bất kỳ platform nào Nopa đang dùng. Partner network thực địa và loyalty app bổ sung cho nhau — platform lo engagement trong app, mạng lưới F&B tạo ra lý do dùng bình mỗi ngày ngoài đời thực.
+    </div>
+  </section>
+
+  <!-- SECTION 6: CTA -->
+  <section>
+    <div class="cta-block">
+      <div>
+        <div class="section-label" style="color: var(--green-light); margin-bottom: 12px;">06 — Bước tiếp theo</div>
+        <div class="cta-title">Pilot không ràng buộc —<br><em>chạy thử 1 tháng</em></div>
+        <div class="cta-body" style="margin-top: 12px;">Bắt đầu với Rau Má Mix (56 cửa hàng, brand fit tốt nhất), format 5k off, mã NOPA-RAUMAMIX. Sau 1 tháng có redemption rate thực tế → quyết định nhân rộng. Không cần ký hợp đồng dài hạn trước.</div>
+      </div>
+      <div class="cta-action">
+        <a href="mailto:" class="btn btn-primary">Đặt lịch gặp →</a>
+        <div class="cta-contact">[Tên bạn] · [SĐT] · [Email]</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <span>[Tên bạn] · Freelance Partnership Manager · TP.HCM</span>
+    <span>Confidential · Tháng 5/2026</span>
+  </footer>
+
+</div>
+</body>
+</html>
